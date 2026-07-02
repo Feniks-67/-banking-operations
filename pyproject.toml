@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "my-project-lk"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.14"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+lint = [
+    "flake8 (>=7.3.0,<8.0.0)",
+    "mypy (>=2.1.0,<3.0.0)",
+    "black (>=26.5.1,<27.0.0)",
+    "isort (>=8.0.1,<9.0.0)"
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py314"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line-length = 88
+skip-gitignore = true
+src_paths = ["src"]
+
+[tool.mypy]
+python_version = "3.14"
+warn_return_any = true
+disallow_untyped_defs = true
+ignore_missing_imports = false
+strict = false
+
+[tool.flake8]
+max-line-length = 88
+exclude = .git,__pycache__,build,dist,.venv
+ignore = E203,W503
