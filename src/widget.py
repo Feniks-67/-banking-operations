@@ -13,7 +13,7 @@ def get_mask_card_number(number: str) -> str:
         raise ValueError(f"Номер карты должен быть длиной 16 символов, получено: {len(number)}")
 
     masked = number[:6] + "*" * 6 + number[-4:]
-    blocks = [masked[i:i+4] for i in range(0, len(masked), 4)]
+    blocks = [masked[i : i + 4] for i in range(0, len(masked), 4)]
     return " ".join(blocks)
 
 
