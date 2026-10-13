@@ -1,5 +1,4 @@
-from datetime import datetime
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any
 
 
 def filter_by_state(
